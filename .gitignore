@@ -1,0 +1,6 @@
+*.pkl
+*.pickle
+*.icloud
+*.ipynb_checkpoints/
+~$*.*
+__pycache__/
