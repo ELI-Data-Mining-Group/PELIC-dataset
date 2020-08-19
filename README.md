@@ -216,7 +216,7 @@ question_type_id | Question type
 
 `answer.csv` is the largest file in the dataset, containing all of the written texts, i.e., in PELIC, the texts are not separate txt files stored separately. `answer.csv` is organized such that each row is a **text** with a unique identifier, the **answer_id**.
 
-There are 11 columns in total, providing the text in various raw and processed forms, and information regarding the source of the text:
+There are 9 columns in total, providing the text in various raw and processed forms, and information regarding the source of the text:
 
 Column | Column name | Description
 :---   | :---        | :---
@@ -228,9 +228,7 @@ E      | version     | the version number of the text (typically 1, 2 or 3)
 F      | text_len    | the number of tokens using re-based tokenization
 G      | text        | the raw text produced by the student (as a single string)
 H      | tokens      | the tokenized text using NLTK-based tokenization (each token is a string)
-I      | tok_POS     | the tokenized text with POS tags
-J      | lemmas      | the lemmatized text using NLTK-based lemmatization (each lemma is a string)
-K      | lemma_POS   | the lemmatized text with POS tags
+I      | tok_lem_POS | a list of three-part tuples - the token, lemma, and part of speech for each token in column H
 
 <br>
 
