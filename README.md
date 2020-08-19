@@ -4,6 +4,8 @@
 Authors: Alan Juffs, Na-Rae Han, Ben Naismith  
 Contact: bnaismith@pitt.edu**
 
+[![DOI](https://zenodo.org/badge/288275880.svg)](https://zenodo.org/badge/latestdoi/288275880)
+
 This repo provides the dataset and additional tools for the University of Pittsburgh English Language Institute Corpus (PELIC).
 
 <br>
