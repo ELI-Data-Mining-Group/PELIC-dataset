@@ -155,7 +155,7 @@ To our surprise, finding a good off-the-shelf lemmatizer for English proved diff
 Within the NLP community, working with fully inflected English words as types is the standard approach, therefore NLP suites tend to lack lemmatizing functions altogether; [SpaCy](https://spacy.io/) provides one, but we found its output unreliable.
 
 This brought us to take it upon ourselves to produce lemmas for the learner-written texts.
-We relied on two key pieces of information: POS tags (rationale given above) and frequency. The latter was used for disambiguation: _does_ can be lemmatized as _do_ or _doe_ ("baby deer"), but the former is far more likely.
+We relied on two key pieces of information: POS tags (rationale given above) and frequency. The latter was used for disambiguation: _does_ can be lemmatized as _do_ or _doe_ ("female deer"), but the former is far more likely.
 The [COCA+ 100k word forms list](https://www.wordfrequency.info/100k.asp) proved a valuable resource, as it provided frequency ranks of English words with POS as well as lemma information, all compiled via automated processing.
 We also utilized the [Someya Lemma List](http://www.laurenceanthony.net/software/antconc/), which contains fewer (14k) but manually curated hence more reliable entries.
 We also created a supplementary lemma dictionary not covered by these two resources (e.g., `ANON_NAME_0`, _n't_, _'ve_, _Mr._ etc. as legitimate lemmas).
