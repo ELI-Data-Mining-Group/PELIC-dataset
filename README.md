@@ -6,7 +6,10 @@ Contact: bnaismith@pitt.edu**
 
 [![DOI](https://zenodo.org/badge/288275880.svg)](https://zenodo.org/badge/latestdoi/288275880)
 
-This repo provides the dataset and additional tools for the University of Pittsburgh English Language Institute Corpus (PELIC).
+This repository contains the dataset, as well as additional tools and tutorials, for the University of Pittsburgh English Language Institute Corpus (PELIC).
+
+Corpus citation:  
+Juffs, A., Han, N-R., & Naismith, B. (2020). The University of Pittsburgh English Language Corpus (PELIC) [Data set]. http://doi.org/10.5281/zenodo.3991977
 
 <br>
 
