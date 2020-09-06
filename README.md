@@ -42,18 +42,18 @@ This `README.md` file introduces the the dataset for the Pittsburgh English Lang
 
 In Section 2 we describe some of the key characteristics of this corpus, and Section 3 addresses how the data were collected and processed. Section 4 provides information about each of the files corpus in the repository so that they may be easily accessed and used for linguistic research. Sections 5 and 6 look at accompanying bespoke resources for processing this, or other, corpus data. Finally, Section 7 suggests possible avenues for future data release and development.
 
-Overall, the corpus contributes to the field of learner corpus research by adding to the pool of freely and publicly available learner corpora, supplemented by a useful set of tools and tutorials for accessing these data. For information regarding publications and presentations based on PELIC data, as well as for information regarding the people and parties responsible for the corpus, please visit the [Pitt ELI Corpus](https://github.com/ELI-Data-Mining-Group/Pitt-ELI-Corpus) repository.
+Overall, the corpus contributes to the field of learner corpus research by adding to the pool of freely and publicly available learner corpora, supplemented by a useful set of tools and tutorials for accessing these data. For information regarding publications and presentations based on PELIC data, as well as for information regarding the people and parties responsible for the corpus, please visit the [Pitt ELI Corpus](https://eli-data-mining-group.github.io/Pitt-ELI-Corpus/) web page.
 
 <br>
 
 ## 2. Corpus description
-PELIC is based on data collected from students at the [English Language Institute (ELI)](http://www.eli.pitt.edu) at the University of Pittsburgh from 2005-2012 as part of the [National Science Foundation project](http://learnlab.org) housed at Pitt and CMU. The Intensive English Program (IEP) at the ELI was one of seven site partners with the Pittsburgh Science of Learning Center that provided in vivo research contexts. Part of this research was collecting data from learners; other components were experimental. The IEP data include written and spoken production from writing classes, grammar classes, reading classes, and speaking classes. At present, the written data is publicly available (though see [Future Data Release](#7-Future-Data-Release)).
+PELIC is based on data collected from students at the [English Language Institute (ELI)](http://www.eli.pitt.edu) at the University of Pittsburgh from 2005-2012 as part of the [National Science Foundation project](http://learnlab.org) housed at Pitt and CMU. The Intensive English Program (IEP) at the ELI was one of seven site partners with the Pittsburgh Science of Learning Center that provided in vivo research contexts. Part of this research was collecting data from learners; other components were experimental. The IEP data include written and spoken production from writing, grammar, reading, and speaking classes. At present, the written data is publicly available (though see [Future Data Release](#8-Future-Data-Release)).
 
-Table 1 provides the basic statistics regarding the composition and size of PELIC, and Figure 1 (Juffs, 2020) presents a snapshot of the first languages (L1s) of the students. L1s represented by the largest number of students are Arabic, Chinese, Japanese, Korean, Spanish, and Turkish. Levels of proficiency in the dataset range from Level 2 (approximately equal to the Common European Framework (CEFR) A2) to Level 5 (CEFR B2/C1). There are few Level 2 students as the ELI did not regularly offer that level during the period of data collection. Students contributed data in all skill areas, so ultimately researchers will be able to analyze the data from many students in many skills areas.
+Table 1 provides the basic statistics regarding the composition and size of PELIC, and Figure 1 (Juffs, 2020) presents a snapshot of the first languages (L1s) of the students. L1s represented by the largest number of students are Arabic, Chinese, Japanese, Korean, Spanish, and Turkish. Levels of proficiency in the dataset range from Level 2 (approximately equal to the [Common European Framework (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages) A2) to Level 5 (CEFR B2/C1). There are few Level 2 students as the ELI did not regularly offer that level during the period of data collection. Students contributed data in all skill areas, so ultimately researchers will be able to analyze the data from many students in many skills areas.
 
 **Table 1 - PELIC composition**
 
-PELIC       | Total N
+PELIC       | Total Number
 :---        | :---
 students    | 1177
 texts       | 46230
@@ -66,25 +66,14 @@ lemma types | 39307
 ![Figure 1 - Number of students by L1](README_images/Figure1.png)  
 **Figure 1 - Number of students by L1**
 
-An idea of the numbers of texts from writing assignments from each language group at each level can be observed in Figure 2 (Juffs, 2020). Note that many students contributed to several levels, (e.g., 3, 4, and 5), making it possible to track longitudinally the same students' development over several semesters with multiple skills. Furthermore, many assignments have several versions, with revisions based on teacher feedback, so that uptake of teacher comments and the influence on language development can be investigated (Tables 2 and 3).
+The numbers of texts from writing assignments from each language group at each level can be observed in Figure 2 (Juffs, 2020). Note that many students contributed to several levels, (e.g., 3, 4, and 5), making it possible to track longitudinally the same students' development over several semesters with multiple skills. As seen in Table 2, students attended anywhere from 1 to 6 semesters, and the mean length of duration was 1.86 semesters. Furthermore, many assignments have several versions, with revisions based on teacher feedback, so that uptake of teacher comments and the influence on language development can be investigated (Table 3). Overall, over 11% of all texts had more than one version submitted.
 
 ![Figure 2 - Number of Texts by L1](README_images/Figure2.png)  
 **Figure 2 - Number of texts by L1**
 
 <br>
 
-**Table 2 - Number of text versions**
-
-Text versions | Students (N)
-:---          | :---
-1             | 41589
-2             | 4032
-3             | 583
-4+            | 22
-
-<br>
-
-**Table 3 - Number of semesters attended**
+**Table 2 - Number of semesters attended**
 
 Semesters attended | Students (N)
 :---               | :---
@@ -95,6 +84,17 @@ Semesters attended | Students (N)
 5                  | 16
 6                  | 2
 **Average (mean)** | **1.86**
+
+<br>
+
+**Table 3 - Number of text versions**
+
+Text versions | Students (N)
+:---          | :---
+1             | 41589
+2             | 4032
+3             | 583
+4+            | 22
 
 <br>
 
@@ -115,7 +115,7 @@ Data column values were examined, cleaned up and converted into standardized val
 In the second stage of data processing, we started to reach into the textual (i.e., corpus) data content and apply deep cleaning.
 Excessive use of empty lines or symbols for formatting purposes (`******`, etc.) were pared down, and instances of defunct `\r` line breaks were removed.
 All Unicode-based punctuation was converted to ASCII-based (`’` to `'`, for example).
-A particularly vexing problem involved appearance of the `?` character in place of `'` or some other punctuation in many of the student-written text, which we suspect occurred during a particular period when the data collection system was misconfigured on text encoding.
+A particularly vexing problem involved appearance of the `?` character in place of `'` or some other punctuation in many of the student-written texts, which we suspect occurred during a particular period when the data collection system was misconfigured on text encoding.
 Fixing this involved a combination of automation and manual correction, as genuine tokens of `?` and broken characters were not always easily discerned.
 
 The next stage focused on anonymization within text. Certain textual units such as website URLs and email addresses were rounded up and converted into the place-holder tags `ANON_URLPAGE` and `ANON_EMAIL`.
@@ -127,9 +127,9 @@ Finally, the last stage involved adding interpretive layers to the text, i.e., s
 
 __Tokenization__ For tokenization, we adopted NLTK's scheme based on [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42), which has long been the standard within the natural language processing (NLP) community and therefore will be crucial in being able to apply popular NLP applications to our text.
 We augmented this scheme by applying additional pre- and post- processing. The pre-processing normalized punctuation, which as one might expect was highly irregular in learners' writing contributing to tokenization errors.
-In post-processing, we further broke up punctuation and tokens that were not properly tokenized apart. Importantly, we selectively broke up hyphenated tokens that should not be treated as a single lexical item. In deciding what constitutes a single lexical unit (e.g., _well-known_, _so-called_) and what does not (e.g., _coffee-loving_, _twelve-foot-long_) we consulted COCA's list of to 100,000 frequent words, determining those found in the list to be in the former group.
+In post-processing, we further broke up punctuation and tokens that were not properly tokenized apart. Importantly, we selectively broke up hyphenated tokens that should not be treated as a single lexical item. In deciding what constitutes a single lexical unit (e.g., _well-known_, _so-called_) and what does not (e.g., _coffee-loving_, _twelve-foot-long_) we consulted the list of to 100,000 frequent words from the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/) (COCA; Davies, 2008-), determining those found in the list to be in the former group.
 
-##There was one remaining issue with adopting NLTK's tokenization scheme: it famously separates out all symbols and punctuation into their own tokens (`,`, `...` in the example below), which means its token count will be greatly inflated compared to what's commonly thought of as "word count" in general and further the concept of "text length" within the SLA community.
+There was one remaining issue with adopting NLTK's tokenization scheme: it famously separates out all symbols and punctuation into their own tokens (`,`, `...` in the example below), which means its token count will be greatly inflated compared to what's commonly thought of as "word count" in general and further the concept of "text length" within the SLA community.
 
 ```python
 >>> sent = "Well, Jenny didn't like Tom's shirt..."
@@ -140,9 +140,9 @@ In post-processing, we further broke up punctuation and tokens that were not pro
 ```
 
 Because of this mismatch, we felt it necessary to provide a secondary token count that more closely reflects the common expectations.
-One popular, robust and lexicon-agnostic method for tokenization is based on regular expressions.
+One popular, robust and lexicon-agnostic method for tokenization is based on Regular Expression (RE).
 `r"[A-Za-z_]+"` matches any stretch of alphabetic characters with `_` allowed inside (so that place-holder tokens such as `ANON_EMAIL` are matched as a whole).
-As a result, the word counts of texts using Regular Expression (RE) based tokenization are smaller and reflect more closely how words are counted in the field of applied linguistics; in NLP, removal of punctuation marks is a common and important preprocessing step (Etaiwi & Naymat, 2017).  
+As a result, the word counts of texts using RE-based tokenization are smaller and reflect more closely how words are counted in the field of applied linguistics; in NLP, removal of punctuation marks is a common and important preprocessing step (Etaiwi & Naymat, 2017).  
 
 The example above showcases the tokenization of a short text using these two different methods. As we can see, there is a significant difference in the length of the sentence depending on whether the comma and period are considered to be tokens or not.
 However, NLTK-based tokenization is adopted for all other purposes as it allows for other NLTK-based processing, e.g. part-of-speech tagging and lemmatization.
@@ -177,14 +177,14 @@ The `tok_lem_POS` column in `answer.csv` file contains the triple: `(token, lemm
 <br>
 
 ## 4. Dataset contents
-There are five files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/corpus_files) folder which contain all of the corpus texts, information about the texts, and and information about the students:
+There are five files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/corpus_files) folder which contain all of the corpus texts, information about the texts, and information about the students:
 - [answer.csv](#answercsv)
 - [course.csv](#coursecsv)
 - [question.csv](#questioncsv)
 - [student_information.csv](#student_informationcsv)
 - [test_scores.csv](#test_scorescsv)
 
-In addition, there is a csv file, [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv), in the home directory, which combines data from the various corpus files. (For a tutorial on how to build [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv), please see [Tutorials](#Tutorials).)
+In addition, there is a csv file, [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv), in the home directory, which combines data from the various corpus files. (For a tutorial on how to build [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv), please see [Tutorials](#Tutorials).)
 
 ### Glossary of codes in files:
 level_id | Level description  | CEFR level
@@ -246,7 +246,7 @@ Column | Column name | Description
 A      | course_id   | a unique identifier for each course - a 1-4 digit integer, e.g. _987_
 B      | class_id    | a code to identify in which of the five class types the text was produced (see _Glossary_ above)
 C      | level_id    | a code to identify in which of the four levels the text was produced (see _Glossary_ above)
-D      | semester    | the year and semester (fall, spring, summer) in which the text was produced
+D      | semester    | the year and semester (fall, spring, summer) in which the text was produced, e.g. _2012\_fall
 E      | section     | the class section as there are sometimes multiple identical classes running in parallel
 
 <br>
@@ -270,25 +270,21 @@ D      | allow_text       | tasks which allow students to write an answer (like 
 
 There are 21 columns in total, providing all available information about the students relating to their background and history of language learning:
 
-Column | Column name                 | Description
-:---   | :---                        | :---
-A      | anon_id                     | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
-B      | gender                      | 'Male','Female',or 'Unknown' based on student responses
-C      | birth year                  | four digit year
-D      | native language             | students input their own first language (not from a drop-down menu)
-E      | language_used_at-home       | language used at home in their home country, not in the US
-F      | non-native_language_1       | the L2 with which the student feels they have the highest proficiency
-G      | yrs_of_study_lang1          | the number of years the student has studied the L2 provided in column F
-H      | study_in_classroom_lang1    | whether or not the student studied their L2 from column F in a classroom setting ('yes' or 'no')
-I      | ways_of_study_lang1         | students selected from a menu how they studied their L2 from column F, e.g. _Practiced reading aloud_
-J, N   | non-native_language_2, 3    | same as column F but for an additional non-native language
-K, O   | yrs_of_study_lang2, 3       | same as column G but for an additional non-native language
-L, P   | study_in_classroom_lang2, 3 | same as column H but for an additional non-native language
-M, Q   | ways_of_study_lang2, 3      | same as column I but for an additional non-native language
-R      | course_history              | a list of all the courses attended (course_id codes)
-S      | yrs_of_english_learning     | the number of years the student has been learning English, selected from a drop-down list
-T      | yrs_in_english_environment  | the number of years the student has lived in an English-speaking environment, selected from a drop-down list
-U      | age                         | the student's age at the time of enrollment
+Column  | Column name                  | Description
+:---    | :---                         | :---
+A       | anon_id                      | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
+B       | gender                       | 'Male','Female',or 'Unknown' based on student responses
+C       | birth year                   | four digit year
+D       | native language              | students input their own first language (not from a drop-down menu)
+E       | language_used_at-home        | language used at home in their home country, not in the US
+F, J, N | non-native_language_1,2,3    | the non-L1s (L2, L3, L4) with which the student feels they have the highest proficiency
+G, K, O | yrs_of_study_lang1,2,3       | the number of years the student has studied the non-L1s provided in columns F, J, N
+H, l, P | study_in_classroom_lang1,2,3 | whether or not the student studied their non-L1s in a classroom setting ('yes' or 'no')
+I, M, Q | ways_of_study_lang1,2,3      | students selected from a menu how they studied their non-L1s, e.g. _Practiced reading aloud_
+R       | course_history               | a list of all the courses attended (course_id codes)
+S       | yrs_of_english_learning      | the number of years the student has been learning English, selected from a drop-down list
+T       | yrs_in_english_environment   | the number of years the student has lived in an English-speaking environment, selected from a drop-down list
+U      | age                           | the student's age at the time of enrollment
 
 <br>
 
@@ -313,7 +309,7 @@ J - Q  | Same as B-I        | Same as columns B-I but for the second time studen
 
 ### PELIC_compiled.csv
 
-`PELIC_compiled.csv` is a compilation of the files described above. Like `answer.csv`, `PELIC_compiledcsv` is organized such that each row is a unique **text** with a unique identifier, the **anon_id**. Accompanying each text are data relating to the author (from `student_information.csv`) and the course (`course.csv`). These columns have been selected due to their usefulness for conducting linguistic analysis. However, other columns may be added or deleted as desired; see the [build_PELIC_compiled tutorial](#Tutorials) for how to create and manipulate the `PELIC_compiled.csv`.
+`PELIC_compiled.csv` is a compilation of the files described above. Like `answer.csv`, `PELIC_compiled.csv` is organized such that each row is a unique **text** with a unique identifier, the **anon_id**. Accompanying each text are data relating to the author (from `student_information.csv`) and the course (`course.csv`). These columns have been selected due to their usefulness for conducting linguistic analysis. However, other columns may be added or deleted as desired; see the [build_PELIC_compiled tutorial](#Tutorials) for how to create and manipulate the `PELIC_compiled.csv`.
 
 There are 13 columns in the pre-supplied version of `PELIC_compiled.csv` in the repository:   
 
@@ -340,16 +336,16 @@ M      | tok_lem_POS        | `answer.csv` column M
 
 ### Corpus stats
 
-The [`corpus_stats`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/corpus_stats) folder currently contains PELIC frequency statistics. All of these frequency data can be calculated from the original files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/corpus_files) folder or [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv). However, for quicker access to frequency information, the files in this folder may be useful.
+The [`corpus_stats`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/corpus_stats) folder currently contains PELIC frequency statistics. All of these frequency data can be calculated from the original files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/corpus_files) folder or [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv). However, for quicker access to frequency information, the files in this folder may be useful.
 
 The `corpus_stats` folder contains the following files:
 
 File | Description
 :---   | :---
-[`README.md`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/README.md) | a README file containing a description of the folder contents
-[`frequency_stats.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/frequency_stats.ipynb) | a jupyter notebook describing how [`word_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/word_frequencies.csv) and [`lemma_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/lemma_frequencies.csv) were created
-[`word_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/word_frequencies.csv) | a csv file containing the total frequency and per million frequency for every word in PELIC
-[`lemma_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/corpus_stats/lemma_frequencies.csv) | a csv file containing the total frequency and per million frequency for every lemma in PELIC
+[`README.md`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/README.md) | a README file containing a description of the folder contents
+[`frequency_stats.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/frequency_stats.ipynb) | a jupyter notebook describing how [`word_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/word_frequencies.csv) and [`lemma_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/lemma_frequencies.csv) were created
+[`word_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/word_frequencies.csv) | a csv file containing the total frequency and per million frequency for every word in PELIC
+[`lemma_frequencies.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/corpus_stats/lemma_frequencies.csv) | a csv file containing the total frequency and per million frequency for every lemma in PELIC
 
 #### `corpus_stats` notes:
 - Distributions do not take capitalization into account – a capitalized word and the same non-capitalized word will go towards the same count.
@@ -359,15 +355,15 @@ File | Description
 
 ### Tutorials
 
-The [`tutorials`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/tutorials) folder contains three tutorials relating to the PELIC dataset:
+The [`tutorials`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/tutorials) folder contains three tutorials relating to the PELIC dataset:
 
-1. [`build_PELIC_compiled.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/tutorials/build_PELIC_compiled.ipynb)  
-The build_PELIC_compiled notebook provides a tutorial for creating the [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv) from the PELIC corpus files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/corpus_files) folder. The final csv file is also available in the home directory. For more information on [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv), see [Section 4](#pelic_compiledcsv).
+1. [`build_PELIC_compiled.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/tutorials/build_PELIC_compiled.ipynb)  
+The build_PELIC_compiled notebook provides a tutorial for creating the [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv) from the PELIC corpus files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/corpus_files) folder. The final csv file is also available in the home directory. For more information on [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv), see [Section 4](#pelic_compiledcsv).
 
 2. [`exploratory_data_analysis.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/tutorials/exploratory_data_analysis.ipynb)  
 The exploratory_data_analysis notebook provides a standard first step (EDA) in any data exploration and corpus analysis. It presents and demonstrates basic statistics of PELIC's composition, including the figures and statistics presented in this file. The statistics relate to the aspects of the corpus such as the students, their first languages, their genders, the classes and semesters, and of course the texts themselves.
 
-3. [`PELIC_concordancing_tutorial.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/tutorials/PELIC_concordancing_tutorial.ipynb)  
+3. [`PELIC_concordancing_tutorial.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/tutorials/PELIC_concordancing_tutorial.ipynb)  
 The PELIC_concordancing_tutorial notebook provides a short example of the type of linguistic investigation that can be carried out with the data in PELIC. The focus of the investigation is a set of verbs which are important indicators of syntactic complexity. The tutorial has two aims:
   - to present a straightforward and replicable way of accessing and processing the corpus data necessary to answer genuine research questions, using tools from the [Pitt ELI Toolkit (pelitk)](https://github.com/ELI-Data-Mining-Group/pelitk)
   - to demonstrate how to build a concordance list and dataframe using the PELIC data
@@ -380,8 +376,8 @@ The PELIC_concordancing_tutorial notebook provides a short example of the type o
 
 `pelitk` is a python package that contains implementations of various lexical analysis tools that are useful for Second Language Acquisition (SLA) work. These modules can be imported and used in Python. At present, there are two modules available:
 
-1. [`conc.py`](#concpy) - functions for creating concordances to show selected key words in context
-2. [`lex.py`](#lexpy) - functions measuring lexical sophistication and diversity using a range of indices
+1. [`conc.py`](https://github.com/ELI-Data-Mining-Group/pelitk/blob/master/docs/CONC.md) - functions for creating concordances to show selected key words in context
+2. [`lex.py`](https://github.com/ELI-Data-Mining-Group/pelitk/blob/master/docs/LEX.md) - functions measuring lexical sophistication and diversity using a range of indices
 
 For details of `pelitk` contents and example usage, please see the `pelitk` repo [README.md](https://github.com/ELI-Data-Mining-Group/pelitk/blob/master/README.md) file.
 
@@ -389,7 +385,7 @@ For details of `pelitk` contents and example usage, please see the `pelitk` repo
 
 ## 7. PELIC spelling
 
-[`PELIC-spelling`](https://github.com/ELI-Data-Mining-Group/PELIC-spelling) is a repository which provides information and code about applying spelling correction to the PELIC dataset. Spelling correction is an important element to consider in any corpus study involving learner data. The decision whether to correct texts or not will invariably impact results: in some instances it may be preferable to use the raw text, maintaining its integrity and avoiding an additional layer of processing. However, for other projects, corrected text may provide a more accurate representation of the language features being investigated.
+[`PELIC-spelling`](https://github.com/ELI-Data-Mining-Group/PELIC-spelling) is a repository containing information and code about applying spelling correction to the PELIC dataset. Spelling correction is an important element to consider in any corpus study involving learner data. The decision whether to correct texts or not will invariably impact results: in some instances it may be preferable to use the raw text, maintaining its integrity and avoiding an additional layer of processing. However, for other projects, corrected text may provide a more accurate representation of the language features being investigated.
 
 For details of `PELIC-spelling` contents and example usage, please see the `PELIC-spelling` repo [README.md](https://github.com/ELI-Data-Mining-Group/PELIC-spelling/blob/master/README.md) file.
 
@@ -405,6 +401,7 @@ Arabic 20,678; Chinese 9,870; Japanese 3,564; Korean 11,827
 
 ## 9. References
 - **Callies, M.** (2015). Learner Corpus Methodology. In S. Granger, G. Gilquin, & F. Meunier (Eds.), _[The Cambridge Handbook of Learner Corpus Research](https://www.cambridge.org/core/books/cambridge-handbook-of-learner-corpus-research/FB183B3454258B542CAB8613EE0494A3)_ (pp. 35-55). New York: Cambridge University Press.
+- **Davies, M.** (2008-). The Corpus of Contemporary American English (COCA): 560 million words, 1990-present. Available at https://www.english-corpora.org/coca/ (last accessed August 2020).
 - **Etaiwi, W. & Naymat, G.** (2017). [The Impact of applying Different Preprocessing Steps on Review Spam Detection](https://www.sciencedirect.com/science/article/pii/S1877050917317787), _Procedia Computer Science, 113_, 273-279. https://doi.org/10.1016/j.procs.2017.08.368
 - **Juffs, A.** (2020). _[Aspects of Language Development in an Intensive English Program](https://www.routledge.com/Aspects-of-Language-Development-in-an-Intensive-English-Program/Juffs/p/book/9781138048362)_. New York: Routledge.
 - **Leńko-Szymańska, A.** (2019). _[Defining and Assessing Lexical Proficiency](https://www.routledge.com/Defining-and-Assessing-Lexical-Proficiency-1st-Edition/Lenko-Szymanska/p/book/9780367337926)_. Routledge.
@@ -414,7 +411,7 @@ Arabic 20,678; Chinese 9,870; Japanese 3,564; Korean 11,827
 <br>
 
 ## 10. License
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">PELIC dataset</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/ELI-Data-Mining-Group/PELIC_dataset" property="cc:attributionName" rel="cc:attributionURL">Alan Juffs, Na-Rae Han, Ben Naismith</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/ELI-Data-Mining-Group/PELIC_dataset" rel="dct:source">https://github.com/ELI-Data-Mining-Group/PELIC_dataset</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">PELIC dataset</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" property="cc:attributionName" rel="cc:attributionURL">Alan Juffs, Na-Rae Han, Ben Naismith</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" rel="dct:source">https://github.com/ELI-Data-Mining-Group/PELIC-dataset</a>.
 
 <br>
 
