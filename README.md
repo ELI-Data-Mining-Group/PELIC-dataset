@@ -33,14 +33,15 @@ Juffs, A., Han, N-R., & Naismith, B. (2020). The University of Pittsburgh Englis
 7. [PELIC spelling](#7-pelic-spelling)
 8. [Future data release](#8-Future-data-release)
 9. [References](#9-References)
-10. [License](#10-License)
+10. [Changelog](#10-Changelog)
+11. [License](#11-License)
 
 <br>
 
 ## 1. Overview
-This `README.md` file introduces the the dataset for the Pittsburgh English Language Institute Corpus (PELIC), a large learner corpus of written and spoken texts. These texts were collected in an English for Academic Purposes (EAP) context over seven years in the University of Pittsburgh’s Intensive English Program, and were produced by students with a wide range of linguistic backgrounds and proficiency levels. Unlike most learner corpora which are cross-sectional (Callies, 2015), PELIC is quasi-longitudinal, offering greater opportunities for tracking development in a natural classroom setting.
+This `README.md` file introduces the dataset for the University of Pittsburgh English Language Institute Corpus (PELIC), a large learner corpus of written and spoken texts. These texts were collected in an English for Academic Purposes (EAP) context over seven years in the University of Pittsburgh’s Intensive English Program, and were produced by students with a wide range of linguistic backgrounds and proficiency levels. Unlike most learner corpora which are cross-sectional (Callies, 2015), PELIC is longitudinal, offering greater opportunities for tracking development in a natural classroom setting.
 
-In Section 2 we describe some of the key characteristics of this corpus, and Section 3 addresses how the data were collected and processed. Section 4 provides information about each of the files corpus in the repository so that they may be easily accessed and used for linguistic research. Sections 5 and 6 look at accompanying bespoke resources for processing this, or other, corpus data. Finally, Section 7 suggests possible avenues for future data release and development.
+In Section 2 we describe some of the key characteristics of this corpus, and Section 3 addresses how the data were collected and processed. Section 4 provides information about each of the files corpus in the repository so that they may be easily accessed and used for linguistic research. Sections 5, 6 and 7 look at accompanying bespoke resources for processing this, or other, corpus data. Finally, Section 8 suggests possible avenues for future data release and development.
 
 Overall, the corpus contributes to the field of learner corpus research by adding to the pool of freely and publicly available learner corpora, supplemented by a useful set of tools and tutorials for accessing these data. For information regarding publications and presentations based on PELIC data, as well as for information regarding the people and parties responsible for the corpus, please visit the [Pitt ELI Corpus](https://eli-data-mining-group.github.io/Pitt-ELI-Corpus/) web page.
 
@@ -101,33 +102,21 @@ Text versions | Students (N)
 ## 3. Data collection and processing
 
 Originally, the collected data resided on a server: relational data and textual data (such as paragraphs of text students wrote) were kept in a MySQL database, and all external files that went with them such as MS Word documents and recorded audio files were stored separately.
-A web interface running MySQL query with a drop-down menu then let researchers specify parameters of their interest and access textual and audio data.
-However, issues with server maintenance and advancement in tools for corpus analysis brought us to the adoption of a different approach: publishing the textual portion of the dataset in the form of `.csv` files, which researchers can then analyze in full with the aid of Python or R.  
+A web interface running MySQL query with a drop-down menu then let researchers specify parameters of their interest and access textual and audio data. However, issues with server maintenance and advancement in tools for corpus analysis brought us to the adoption of a different approach: publishing the textual portion of the dataset in the form of `.csv` files, which researchers can then analyze in full with the aid of Python or R.  
 
 ### 3.1. Conversion, clean-up and culling of data entries
-The initial stage of data processing focused on conversion and clean-up: tasks included data conversion, cleaning, standardization, data-point culling and anonymization.
-First, the MySQL tables were converted to `.csv` (comma-separated values) format.
-Spurious users (teachers, admins, test accounts) were purged, individual users were assigned unique identifiers, and their personal information entries in the database were removed.
-Spurious data rows were likewise purged (deleted entries, test runs, etc.), and data fields with little information value were dropped.
-Data column values were examined, cleaned up and converted into standardized values (for example, "home language" values were full of misspellings and variations).
+The initial stage of data processing focused on conversion and clean-up: tasks included data conversion, cleaning, standardization, data-point culling and anonymization. First, the MySQL tables were converted to `.csv` (comma-separated values) format. Spurious users (teachers, admins, test accounts) were purged, individual users were assigned unique identifiers, and their personal information entries in the database were removed. Spurious data rows were likewise purged (deleted entries, test runs, etc.), and data fields with little information value were dropped. Data column values were examined, cleaned up and converted into standardized values (for example, "home language" values were full of misspellings and variations).
 
 ### 3.2. Cleaning student-written text and anonymization
 In the second stage of data processing, we started to reach into the textual (i.e., corpus) data content and apply deep cleaning.
-Excessive use of empty lines or symbols for formatting purposes (`******`, etc.) were pared down, and instances of defunct `\r` line breaks were removed.
-All Unicode-based punctuation was converted to ASCII-based (`’` to `'`, for example).
-A particularly vexing problem involved appearance of the `?` character in place of `'` or some other punctuation in many of the student-written texts, which we suspect occurred during a particular period when the data collection system was misconfigured on text encoding.
-Fixing this involved a combination of automation and manual correction, as genuine tokens of `?` and broken characters were not always easily discerned.
+Excessive use of empty lines or symbols for formatting purposes (`******`, etc.) were pared down, and instances of defunct `\r` line breaks were removed. All Unicode-based punctuation was converted to ASCII-based (`’` to `'`, for example). A particularly vexing problem involved appearance of the `?` character in place of `'` or some other punctuation in many of the student-written texts, which we suspect occurred during a particular period when the data collection system was misconfigured on text encoding. Fixing this problem involved a combination of automation and manual correction, as genuine tokens of `?` and broken characters were not always easily discerned.
 
-The next stage focused on anonymization within text. Certain textual units such as website URLs and email addresses were rounded up and converted into the place-holder tags `ANON_URLPAGE` and `ANON_EMAIL`.
-Secondly, mentions of personal names of students and teachers were identified and replaced with `ANON_NAME_0`. Some texts contained mentions of multiple different personal names; in such cases, we differentiated them as `ANON_NAME_1`, `ANON_NAME_2`, etc. so as to keep such references distinguished.
-
+The next stage focused on anonymization within text. Certain textual units such as website URLs and email addresses were rounded up and converted into the place-holder tags `ANON_URLPAGE` and `ANON_EMAIL`. Secondly, mentions of personal names of students and teachers were identified and replaced with `ANON_NAME_0`. Some texts contained mentions of multiple different personal names; in such cases, we differentiated them as `ANON_NAME_1`, `ANON_NAME_2`, etc. so as to keep such references distinguished.
 
 ### 3.3. Linguistic processing of text
 Finally, the last stage involved adding interpretive layers to the text, i.e., some basic levels of linguistic information such as number of tokens, tokenization, part-of-speech (POS) tags, and lemmatization.
 
-__Tokenization__ For tokenization, we adopted NLTK's scheme based on [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42), which has long been the standard within the natural language processing (NLP) community and therefore will be crucial in being able to apply popular NLP applications to our text.
-We augmented this scheme by applying additional pre- and post- processing. The pre-processing normalized punctuation, which as one might expect was highly irregular in learners' writing contributing to tokenization errors.
-In post-processing, we further broke up punctuation and tokens that were not properly tokenized apart. Importantly, we selectively broke up hyphenated tokens that should not be treated as a single lexical item. In deciding what constitutes a single lexical unit (e.g., _well-known_, _so-called_) and what does not (e.g., _coffee-loving_, _twelve-foot-long_) we consulted the list of to 100,000 frequent words from the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/) (COCA; Davies, 2008-), determining those found in the list to be in the former group.
+__Tokenization__ For tokenization, we adopted NLTK's scheme based on [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42), which has long been the standard within the natural language processing (NLP) community and therefore will be crucial in being able to apply popular NLP applications to our text. We augmented this scheme by applying additional pre- and post- processing. The pre-processing normalized punctuation, which as one might expect was highly irregular in learners' writing contributing to tokenization errors. In post-processing, we further broke up punctuation and tokens that were not properly tokenized apart. Importantly, we selectively broke up hyphenated tokens that should not be treated as a single lexical item. In deciding what constitutes a single lexical unit (e.g., _well-known_, _so-called_) and what does not (e.g., _coffee-loving_, _twelve-foot-long_) we consulted the list of to 100,000 frequent words from the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/) (COCA; Davies, 2008-), determining those found in the list to be in the former group.
 
 There was one remaining issue with adopting NLTK's tokenization scheme: it famously separates out all symbols and punctuation into their own tokens (`,`, `...` in the example below), which means its token count will be greatly inflated compared to what's commonly thought of as "word count" in general and further the concept of "text length" within the SLA community.
 
@@ -140,28 +129,18 @@ There was one remaining issue with adopting NLTK's tokenization scheme: it famou
 ```
 
 Because of this mismatch, we felt it necessary to provide a secondary token count that more closely reflects the common expectations.
-One popular, robust and lexicon-agnostic method for tokenization is based on Regular Expression (RE).
-`r"[A-Za-z_]+"` matches any stretch of alphabetic characters with `_` allowed inside (so that place-holder tokens such as `ANON_EMAIL` are matched as a whole).
-As a result, the word counts of texts using RE-based tokenization are smaller and reflect more closely how words are counted in the field of applied linguistics; in NLP, removal of punctuation marks is a common and important preprocessing step (Etaiwi & Naymat, 2017).  
+One popular, robust and lexicon-agnostic method for tokenization is based on Regular Expression (RE). `r"[A-Za-z_]+"` matches any stretch of alphabetic characters with `_` allowed inside (so that place-holder tokens such as `ANON_EMAIL` are matched as a whole). As a result, the word counts of texts using RE-based tokenization are smaller and reflect more closely how words are counted in the field of applied linguistics; in NLP, removal of punctuation marks is a common and important preprocessing step (Etaiwi & Naymat, 2017).  
 
-The example above showcases the tokenization of a short text using these two different methods. As we can see, there is a significant difference in the length of the sentence depending on whether the comma and period are considered to be tokens or not.
-However, NLTK-based tokenization is adopted for all other purposes as it allows for other NLTK-based processing, e.g. part-of-speech tagging and lemmatization.
-In all future references to text lengths, we use these re-based token counts as reported in the `text_len` column in `answer.csv`.  In using our dataset, we hope the research community will likewise take proper caution to use this measure, especially in computing text-length-dependent metrics.
+The example above showcases the tokenization of a short text using these two different methods. As we can see, there is a significant difference in the length of the sentence depending on whether the comma and period are considered to be tokens or not. However, NLTK-based tokenization is adopted for all other purposes as it allows for other NLTK-based processing, e.g. part-of-speech tagging and lemmatization.
+In all future references to text lengths, we use these RE-based token counts as reported in the `text_len` column in `answer.csv`.  In using our dataset, we hope the research community will likewise take proper caution to use this measure, especially in computing text-length-dependent metrics.
 
 __Part-Of-Speech tagging__ Producing part-of-speech (POS) tags was not a primary goal for us but simply a means to assist with lemmatization.
-For example, in lemmatizing _rose_, knowing its POS (noun or verb) is critical in picking between _rose_ and _rise_.
-While there are plenty of high-accuracy POS taggers available for English, we settled on NLTK's built-in POS tagger (`nltk.pos_tag()`) using the [Penn Treebank POS tagset](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
-The resulting POS tags were not checked for quality: for processing tasks relying on accurate POS tags, we recommend users to produce their own using state-of-the-art POS taggers.
+For example, in lemmatizing _rose_, knowing its POS (noun or verb) is critical in picking between _rose_ and _rise_. While there are plenty of high-accuracy POS taggers available for English, we settled on NLTK's built-in POS tagger (`nltk.pos_tag()`) using the [Penn Treebank POS tagset](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html). The resulting POS tags were not checked for quality: for processing tasks relying on accurate POS tags, we recommend users to produce their own using state-of-the-art POS taggers.
 
-__Lemmatization__ Since lemmas are one of the more fundamental and useful linguistic units within the SLA research, we decided to add a lemma layer.
-To our surprise, finding a good off-the-shelf lemmatizer for English proved difficult.
-Within the NLP community, working with fully inflected English words as types is the standard approach, therefore NLP suites tend to lack lemmatizing functions altogether; [SpaCy](https://spacy.io/) provides one, but we found its output unreliable.
+__Lemmatization__ Since lemmas are one of the more fundamental and useful linguistic units within the SLA research, we decided to add a lemma layer. To our surprise, finding a good off-the-shelf lemmatizer for English proved difficult. Within the NLP community, working with fully inflected English words as types is the standard approach, therefore NLP suites tend to lack lemmatizing functions altogether; [SpaCy](https://spacy.io/) provides one, but we found its output unreliable.
 
-This brought us to take it upon ourselves to produce lemmas for the learner-written texts.
-We relied on two key pieces of information: POS tags (rationale given above) and frequency. The latter was used for disambiguation: _does_ can be lemmatized as _do_ or _doe_ ("female deer"), but the former is far more likely.
-The [COCA+ 100k word forms list](https://www.wordfrequency.info/100k.asp) proved a valuable resource, as it provided frequency ranks of English words with POS as well as lemma information, all compiled via automated processing.
-We also utilized the [Someya Lemma List](http://www.laurenceanthony.net/software/antconc/), which contains fewer (14k) but manually curated hence more reliable entries.
-We also created a supplementary lemma dictionary not covered by these two resources (e.g., `ANON_NAME_0`, _n't_, _'ve_, _Mr._ etc. as legitimate lemmas).
+This brought us to take it upon ourselves to produce lemmas for the learner-written texts. We relied on two key pieces of information: POS tags (rationale given above) and frequency. The latter was used for disambiguation: _does_ can be lemmatized as _do_ or _doe_ ("female deer"), but the former is far more likely. The [COCA+ 100k word forms list](https://www.wordfrequency.info/100k.asp) proved a valuable resource, as it provided frequency ranks of English words with POS as well as lemma information, all compiled via automated processing.
+We also utilized the [Someya Lemma List](http://www.laurenceanthony.net/software/antconc/), which contains fewer (14k) but manually curated hence more reliable entries. We also created a supplementary lemma dictionary not covered by these two resources (e.g., `ANON_NAME_0`, _n't_, _'ve_, _Mr._ etc. as legitimate lemmas).
 
 The lemmatization process can be summarized as follows: look up the token in our supplementary lemma dictionary; if not found, look up in COCA and Someya; if multiple lemma candidates, refer to its POS; if still ambiguous, rule for the most frequent lemma/POS; if token was not found in these lists, output the original token form as the lemma. As a spot check of the lemmatizer's accuracy, 10 texts of over 50 words in length (2231 tokens total) were manually lemmatized. When compared to the automated lemmatization process, there was a 99.3% percent agreement rate (2216/2231), indicating high reliability. Of the 15 items which were mis-lemmatized, the most common issue was for forms ending in _-ing_ which can either be a noun form (keeping the _ing_), a verb form (removing the _ing_), or an adjective form (keeping the _ing_). Context is important for determining the correct lemma form in such cases, and with student language, grammatical errors can make the intended form difficult to decipher.
 
@@ -221,19 +200,20 @@ question_type_id | Question type
 
 `answer.csv` is the largest file in the dataset, containing all of the written texts, i.e., in PELIC, the texts are not separate txt files stored separately. `answer.csv` is organized such that each row is a **text** with a unique identifier, the **answer_id**.
 
-There are 9 columns in total, providing the text in various raw and processed forms, and information regarding the source of the text:
+There are 10 columns in total, providing the text in various raw and processed forms, and information regarding the source of the text:
 
-Column | Column name | Description
-:---   | :---        | :---
-A      | answer_id   | a unique identifier for each text - a 1-5 digit integer, e.g. _19399_
-B      | question_id | a code which links to `question.csv`, containing task information
-C      | anon_id     | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
-D      | course_id   | a code which links to  `course.csv`, containing course information, e.g. level, class type, semester
-E      | version     | the version number of the text (typically 1, 2 or 3)
-F      | text_len    | the number of tokens using re-based tokenization
-G      | text        | the raw text produced by the student (as a single string)
-H      | tokens      | the tokenized text using NLTK-based tokenization (each token is a string)
-I      | tok_lem_POS | a list of three-part tuples - the token, lemma, and part of speech for each token in column H
+Column | Column name  | Description
+:---   | :---         | :---
+A      | answer_id    | a unique identifier for each text - a 1-5 digit integer, e.g. _19399_
+B      | question_id  | a code which links to `question.csv`, containing task information
+C      | anon_id      | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
+D      | course_id    | a code which links to  `course.csv`, containing course information, e.g. level, class type, semester
+E      | version      | the version number of the text (typically 1, 2 or 3)
+F      | created_date | the date and time that the text was produced and submitted
+G      | text_len     | the number of tokens using RE-based tokenization
+H      | text         | the raw text produced by the student (as a single string)
+I      | tokens       | the tokenized text using NLTK-based tokenization (each token is a string)
+J      | tok_lem_POS  | a list of three-part tuples - the token, lemma, and part of speech for each token in column H
 
 <br>
 
@@ -290,7 +270,7 @@ U      | age                           | the student's age at the time of enroll
 
 ### test_scores.csv
 
-`test_scores.csv` contains information about students' test scores from their intial placement tests upon entering the ELI. `test_scores.csv` is organized such that each row is a unique **student** with a unique identifier, the **anon_id**. There are 18 columns which provide scores for the different components of the placement test:
+`test_scores.csv` contains information about students' test scores from their initial placement tests upon entering the ELI. `test_scores.csv` is organized such that each row is a unique **student** with a unique identifier, the **anon_id**. There are 18 columns which provide scores for the different components of the placement test:
 
 Column | Column name        | Description
 :---   | :---               | :---
@@ -368,7 +348,7 @@ The PELIC_concordancing_tutorial notebook provides a short example of the type o
   - to present a straightforward and replicable way of accessing and processing the corpus data necessary to answer genuine research questions, using tools from the [Pitt ELI Toolkit (pelitk)](https://github.com/ELI-Data-Mining-Group/pelitk)
   - to demonstrate how to build a concordance list and dataframe using the PELIC data
 
-
+NOTE: If you wish to install all Python dependencies at once required for the Jupyter notebooks in this section, you may do so using the following command line: `pip install -r requirements.txt`
 
 <br>
 
@@ -410,7 +390,12 @@ Arabic 20,678; Chinese 9,870; Japanese 3,564; Korean 11,827
 
 <br>
 
-## 10. License
+## 10. Changelog
+All notable changes to the PELIC dataset will be documented in this [`Changelog`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/Changelog.md) file.
+
+<br>
+
+## 11. License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">PELIC dataset</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" property="cc:attributionName" rel="cc:attributionURL">Alan Juffs, Na-Rae Han, Ben Naismith</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/ELI-Data-Mining-Group/PELIC-dataset" rel="dct:source">https://github.com/ELI-Data-Mining-Group/PELIC-dataset</a>.
 
 <br>

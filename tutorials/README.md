@@ -2,8 +2,8 @@
 
 This folder contains three tutorials relating to the PELIC dataset:
 
-1. [`build_PELIC_compiled.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/tutorials/build_PELIC_compiled.ipynb)  
-The build_PELIC_compiled notebook provides a tutorial for creating the [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv) from the PELIC corpus files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/tree/master/corpus_files) folder. The final csv file is also available in the home directory. For more information on [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/PELIC_compiled.csv), see the [PELIC_compiled.csv](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/README.md#pelic_compiledcsv) section of the main [README.md](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/README.md) file for the dataset.
+1. [`build_PELIC_compiled.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/tutorials/build_PELIC_compiled.ipynb)  
+The build_PELIC_compiled notebook provides a tutorial for creating the [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv) from the PELIC corpus files in the [`corpus_files`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/tree/master/corpus_files) folder. The final csv file is also available in the home directory. For more information on [`PELIC_compiled.csv`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/PELIC_compiled.csv), see the [PELIC_compiled.csv](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/README.md#pelic_compiledcsv) section of the main [README.md](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/README.md) file for the dataset.
 
 <br>
 
@@ -12,7 +12,7 @@ The exploratory_data_analysis notebook provides a standard first step (EDA) in a
 
 <br>
 
-3. [`PELIC_concordancing_tutorial.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC_dataset/blob/master/tutorials/PELIC_concordancing_tutorial.ipynb)  
+3. [`PELIC_concordancing_tutorial.ipynb`](https://github.com/ELI-Data-Mining-Group/PELIC-dataset/blob/master/tutorials/PELIC_concordancing_tutorial.ipynb)  
 The PELIC_concordancing_tutorial notebook provides a short example of the type of linguistic investigation that can be carried out with the data in PELIC. The focus of the investigation is a set of verbs which are important indicators of syntactic complexity. The tutorial has two aims:
   - to present a straightforward and replicable way of accessing and processing the corpus data necessary to answer genuine research questions, using tools from the [Pitt ELI Toolkit (pelitk)](https://github.com/ELI-Data-Mining-Group/pelitk)
   - to demonstrate how to build a concordance list and dataframe using the PELIC data
