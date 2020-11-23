@@ -8,8 +8,22 @@ Contact: bnaismith@pitt.edu**
 
 This repository contains the dataset, as well as additional tools and tutorials, for the University of Pittsburgh English Language Institute Corpus (PELIC).
 
-Corpus citation:  
+**Corpus citation:**  
 Juffs, A., Han, N-R., & Naismith, B. (2020). The University of Pittsburgh English Language Corpus (PELIC) [Data set]. http://doi.org/10.5281/zenodo.3991977
+
+<br>
+
+### Download instructions
+To download the dataset, we strongly recommend using [GitHub](https://github.com/) and [cloning the entire repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This will provide you will all the files on your local computer.  
+
+To download a file without using a GitHub account, follow the procedure below:  
+1. Click on the filename you wish to download, e.g. `PELIC_compiled.csv`.  
+![Step 1](README_images/download_step1.png)  
+2. Right-click on the `Download` button and select `Save Link As...`.  
+![Step 2](README_images/download_step2.png)  
+3. Change the extension from `.txt` to `.csv` before saving.
+![Step 3](README_images/download_step3.png)  
+**Important:** By manipulating files, there is always the danger of introducing errors into the data. Any data manipulation should be clearly stated in work resulting from these data.
 
 <br>
 
