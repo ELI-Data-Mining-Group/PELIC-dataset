@@ -287,28 +287,28 @@ U      | age                           | the student's age at the time of enroll
 
 ### test_scores.csv
 
-`test_scores.csv` contains information about students' test scores from their initial placement tests upon entering the ELI. `test_scores.csv` is organized such that each row is a unique **student** with a unique identifier, the **anon_id**. There are 18 columns which provide scores for the different components of the placement test:
+`test_scores.csv` contains information about students' test scores from their initial placement tests upon entering the ELI. `test_scores.csv` is organized such that each row is a unique **student** with a unique identifier, the **anon_id**. There are 10 columns which provide scores for the different components of the placement test:
 
 Column | Column name        | Description
 :---   | :---               | :---
 A      | anon_id            | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
-B      | LCT_Form_1	        | in-house listening test (LCT) version number, first time test taken
-C      | LCT_Score_1        | in-house listening test (LCT) score, first time test taken
-D      | MTELP_Form_1       | Michigan Test of English Language Proficiency (MTELP) versions number
-E      | MTELP_I_1          | MTELP Grammar section
-F      | MTELP_II_1         | MTELP Reading section
-G      | MTELP_III_1        | MTELP Listening section
-H      | MTELP_Conv_Score_1 | MTELP total combined score
-I	     | Writing_Sample_1   | in-house writing test score (scale of 1-6)
-J - Q  | Same as B-I        | Same as columns B-I but for the second time students took the tests
+B      | semester	          | semester when test was taken
+C      | LCT_Form	          | in-house listening test (LCT) version number
+D      | LCT_Score          | in-house listening test (LCT) score
+E      | MTELP_Form         | Michigan Test of English Language Proficiency (MTELP) versions number
+F      | MTELP_I            | MTELP Grammar section
+G      | MTELP_II           | MTELP Reading section
+H      | MTELP_III          | MTELP Listening section
+I      | MTELP_Conv_Score   | MTELP total combined score
+J	     | Writing_Sample     | in-house writing test score (scale of 1-6)
 
 <br>
 
 ### PELIC_compiled.csv
 
-`PELIC_compiled.csv` is a compilation of the files described above. Like `answer.csv`, `PELIC_compiled.csv` is organized such that each row is a unique **text** with a unique identifier, the **anon_id**. Accompanying each text are data relating to the author (from `student_information.csv`) and the course (`course.csv`). These columns have been selected due to their usefulness for conducting linguistic analysis. However, other columns may be added or deleted as desired; see the [build_PELIC_compiled tutorial](#Tutorials) for how to create and manipulate the `PELIC_compiled.csv`.
+`PELIC_compiled.csv` is a compilation of the files described above. Like `answer.csv`, `PELIC_compiled.csv` is organized such that each row is a unique **text** with a unique identifier, the **anon_id**. Accompanying each text are data relating to the author (from `student_information.csv`), the course (`course.csv`), and their placement tests (`test_scores.csv`). These columns have been selected due to their usefulness for conducting linguistic analysis. However, other columns may be added or deleted as desired; see the [build_PELIC_compiled tutorial](#Tutorials) for how to create and manipulate the `PELIC_compiled.csv`.
 
-There are 13 columns in the pre-supplied version of `PELIC_compiled.csv` in the repository:   
+There are 14 columns in the pre-supplied version of `PELIC_compiled.csv` in the repository:   
 
 Column | Column name        | Source
 :---   | :---               | :---
@@ -316,16 +316,17 @@ A      | answer_id          | `answer.csv` column A
 B      | anon_id            | `answer.csv` column B
 C      | L1                 | `student_information.csv` column D
 D      | gender             | `student_information.csv` column B
-E      | course_id          | `course.csv` column A
-F      | level_id           | `course.csv` column C
-G      | class_id           | `course.csv` column B
-H      | question_id        | `answer.csv` column H
-I      | version            | `answer.csv` column I
-J      | text_len           | `answer.csv` column J
-K      | text               | `answer.csv` column K
-L      | tokens             | `answer.csv` column L
-M      | tok_lem_POS        | `answer.csv` column M
-
+E      | semester           | `course.csv` column D
+F      | placement_test     | `test_scores.csv` column I
+G      | course_id          | `course.csv` column A
+H      | level_id           | `course.csv` column C
+I      | class_id           | `course.csv` column B
+J      | question_id        | `answer.csv` column H
+K      | version            | `answer.csv` column I
+L      | text_len           | `answer.csv` column J
+M      | text               | `answer.csv` column K
+N      | tokens             | `answer.csv` column L
+O      | tok_lem_POS        | `answer.csv` column M
 
 <br>
 
