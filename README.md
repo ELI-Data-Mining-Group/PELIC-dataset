@@ -1,6 +1,6 @@
 # The University of Pittsburgh English Language Institute Corpus (PELIC)
 
-**Version 1.0  
+**Version 1.1  
 Authors: Alan Juffs, Na-Rae Han, Ben Naismith  
 Contact: bnaismith@pitt.edu**
 
