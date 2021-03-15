@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed version outliers (3 texts with more than 3 versions)
+
+
+## [1.1] - 2020-03-03
+### Changed
+- Cleaned `test_scores.csv` so that there is one unique test score for each anon_id/semester_id combination
+- Updated `PELIC_compiled.csv` to include two new columns for `semester` and `placement_test` score
+
 
 ## [1.0] - 2020-09-11
 ### Added
@@ -17,12 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Nothing
 
-
-## [1.1] - 2020-03-03
-
-### Changed
-- Cleaned `test_scores.csv` so that there is one unique test score for each anon_id/semester_id combination
-- Updated `PELIC_compiled.csv` to include two new columns for `semester` and `placement_test` score
 
 [Unreleased]: https://github.com/ELI-Data-Mining-Group/PELIC-dataset/compare/v1.0...master
 [1.0.0]: https://github.com/ELI-Data-Mining-Group/PELIC-dataset/compare/v1.0...v1.1

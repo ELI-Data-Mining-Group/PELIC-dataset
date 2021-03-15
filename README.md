@@ -81,7 +81,7 @@ lemma types | 39307
 ![Figure 1 - Number of students by L1](README_images/Figure1.png)  
 **Figure 1 - Number of students by L1**
 
-The numbers of texts from writing assignments from each language group at each level can be observed in Figure 2 (Juffs, 2020). Note that many students contributed to several levels, (e.g., 3, 4, and 5), making it possible to track longitudinally the same students' development over several semesters with multiple skills. As seen in Table 2, students attended anywhere from 1 to 6 semesters, and the mean length of duration was 1.86 semesters. Furthermore, many assignments have several versions, with revisions based on teacher feedback, so that uptake of teacher comments and the influence on language development can be investigated (Table 3). Overall, over 11% of all texts had more than one version submitted.
+The numbers of texts from writing assignments from each language group at each level can be observed in Figure 2 (Juffs, 2020). Note that many students contributed to several levels, (e.g., 3, 4, and 5), making it possible to track longitudinally the same students' development over several semesters with multiple skills. As seen in Table 2, students attended anywhere from 1 to 6 semesters, and the mean length of duration was 1.86 semesters. Furthermore, many assignments have multiple versions, with revisions based on teacher feedback, so that uptake of teacher comments and the influence on language development can be investigated (Table 3). Overall, over 11% of all texts had more than one version submitted.
 
 ![Figure 2 - Number of Texts by L1](README_images/Figure2.png)  
 **Figure 2 - Number of texts by L1**
@@ -109,7 +109,6 @@ Text versions | Students (N)
 1             | 41589
 2             | 4032
 3             | 583
-4+            | 22
 
 <br>
 
@@ -225,7 +224,7 @@ A      | answer_id    | a unique identifier for each text - a 1-5 digit integer,
 B      | question_id  | a code which links to `question.csv`, containing task information
 C      | anon_id      | a unique anonymous identifier for each student - two letters and one integer, e.g. _eq0_
 D      | course_id    | a code which links to  `course.csv`, containing course information, e.g. level, class type, semester
-E      | version      | the version number of the text (typically 1, 2 or 3)
+E      | version      | the version number of the text (1, 2 or 3)
 F      | created_date | the date and time that the text was produced and submitted
 G      | text_len     | the number of tokens using RE-based tokenization
 H      | text         | the raw text produced by the student (as a single string)
