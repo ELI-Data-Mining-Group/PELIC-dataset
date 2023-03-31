@@ -14,7 +14,7 @@ Juffs, A., Han, N-R., & Naismith, B. (2020). The University of Pittsburgh Englis
 <br>
 
 ### Download instructions
-To download the dataset, we strongly recommend using [GitHub](https://github.com/) and [cloning the entire repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This will provide you will all the files on your local computer.  
+To download the dataset, we strongly recommend using [GitHub](https://github.com/) and [cloning the entire repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This will provide you will all the files on your local computer. Because of the file sizes, it is necessary to use [git-lfs](https://git-lfs.com/) (Git Large File Storage).  
 
 To download a file without using a GitHub account, follow the procedure below:  
 1. Click on the filename you wish to download, e.g. `PELIC_compiled.csv`.  
